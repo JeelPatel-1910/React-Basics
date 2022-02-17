@@ -11,13 +11,7 @@ const Form = ({
   setUpdatedTask,
 }) => {
   const formData = useRef();
-  // const updatedTodo = (id, task, completed) => {
-  //   const newTodo = todos.map((todo) =>
-  //     todo.id === id ? (id, task, completed) : todo
-  //   );
-  //   setTodos(newTodo);
-  //   setUpdatedTask("");
-  // };
+ 
 
   useEffect(() => {
     if (updatedTask) {
@@ -42,7 +36,7 @@ const Form = ({
           return item;
         })
       );
-      //updatedTodo(updatedTask.id, TaskName, updatedTask.completed);
+     
     }
     setValue("");
   };
