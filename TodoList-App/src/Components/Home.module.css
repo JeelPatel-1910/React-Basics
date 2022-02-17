@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+  background-color: rgb(31, 31, 31);
+  border-radius: 10px;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 100%;
+}
+.box {
+  display: inline-block;
+  padding: 40px 40px;
+  border: 1px solid white;
+  border-radius: 7px;
+  width: 70%;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+.Tasklist {
+  max-height: 250px;
+  overflow-y: auto;
+}
