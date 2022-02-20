@@ -44,7 +44,6 @@ const Form = ({
   return (
     <form className={classes.form} onSubmit={onSubmitHandler}>
       <input
-        key={uuidv4()}
         ref={formData}
         type="text"
         className={classes.input}
