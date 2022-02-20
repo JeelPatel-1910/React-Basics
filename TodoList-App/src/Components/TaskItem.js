@@ -1,15 +1,6 @@
 import "./TaskItem.css";
-import { useEffect, useState } from "react";
 
 const TaskItem = ({ setValue, todos, setTodos, setUpdatedTask }) => {
-  const [Iscomplete, setIsComplete] = useState(false);
-
-  useEffect(() => {
-    const sorted = todos.sort((a, b) => a["completed"] - b["completed"]);
-    console.log(sorted);
-    setTodos(sorted);
-  }, [todos, setTodos]);
-
   const deleteHandler = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -21,15 +12,14 @@ const TaskItem = ({ setValue, todos, setTodos, setUpdatedTask }) => {
     console.log(findTodo);
   };
   const completeHandler = (todo) => {
-    setTodos(
-      todos.map((item) => {
-        if (item.id === todo.id) {
-          return { ...item, completed: !item.completed };
-        }
-        return item;
-      })
-    );
-    setIsComplete(!Iscomplete);
+    let changedTodo = todos.map((item) => {
+      if (item.id === todo.id) {
+        return { ...item, completed: !item.completed };
+      }
+      return item;
+    });
+    const sorted = changedTodo.sort((a, b) => a["completed"] - b["completed"]);
+    setTodos(sorted);
   };
 
   return (
@@ -37,7 +27,6 @@ const TaskItem = ({ setValue, todos, setTodos, setUpdatedTask }) => {
       {todos.map((todo) => (
         <li className="todo" key={todo.id}>
           <input
-            key={todo.id}
             type="text"
             value={todo.task}
             className={`list ${todo.completed ? "complete" : ""}`}
@@ -72,3 +61,4 @@ const TaskItem = ({ setValue, todos, setTodos, setUpdatedTask }) => {
 };
 
 export default TaskItem;
+
